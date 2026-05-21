@@ -1,244 +1,383 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Első Világháború Kvíz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Első Világháború - Antant vs Központi Hatalmak</title>
 
-        h1 {
-            text-align: center;
-            color: #222;
-        }
+<style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+        background:#f0f0f0;
+        color:#222;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
+    header{
+        background:linear-gradient(90deg,#1e3c72,#8e0e00);
+        color:white;
+        text-align:center;
+        padding:30px;
+    }
 
-        .powers {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
-        }
+    section{
+        max-width:1100px;
+        margin:auto;
+        padding:20px;
+    }
 
-        .power {
-            width: 40%;
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-        }
+    .cards{
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+    }
 
-        .allies {
-            background: #2e86de;
-        }
+    .card{
+        flex:1;
+        min-width:300px;
+        padding:20px;
+        border-radius:12px;
+        color:white;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
 
-        .central {
-            background: #c0392b;
-        }
+    .allies{
+        background:#2e86de;
+    }
 
-        .question {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background: #eee;
-        }
+    .central{
+        background:#c0392b;
+    }
 
-        button {
-            padding: 10px 15px;
-            margin-top: 10px;
-            border: none;
-            background: #333;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:20px;
+        background:white;
+    }
 
-        button:hover {
-            background: #555;
-        }
+    th, td{
+        border:1px solid #ccc;
+        padding:12px;
+        text-align:center;
+    }
 
-        .correct {
-            background-color: #2ecc71 !important;
-            color: white;
-        }
+    th{
+        background:#333;
+        color:white;
+    }
 
-        .wrong {
-            background-color: #e74c3c !important;
-            color: white;
-        }
+    .important{
+        background:white;
+        padding:20px;
+        border-radius:12px;
+        margin-top:20px;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
 
-        #result {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+    .question{
+        background:white;
+        padding:15px;
+        margin-bottom:15px;
+        border-radius:10px;
+        transition:0.3s;
+    }
+
+    .correct{
+        background:#2ecc71 !important;
+        color:white;
+    }
+
+    .wrong{
+        background:#e74c3c !important;
+        color:white;
+    }
+
+    button{
+        background:#222;
+        color:white;
+        border:none;
+        padding:12px 20px;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#555;
+    }
+
+    #result{
+        font-size:24px;
+        font-weight:bold;
+        margin-top:20px;
+        text-align:center;
+    }
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Első Világháború Kvíz</h1>
+<header>
+    <h1>Első Világháború</h1>
+    <p>Az Antant és a Központi Hatalmak összehasonlítása</p>
+</header>
 
-    <div class="powers">
-        <div class="power allies">
+<section>
+
+    <h2>A két oldal bemutatása</h2>
+
+    <div class="cards">
+
+        <div class="card allies">
             <h2>Antant</h2>
-            <p>Franciaország</p>
-            <p>Egyesült Királyság</p>
-            <p>Oroszország</p>
+            <p><b>Fő országok:</b></p>
+            <ul>
+                <li>Franciaország</li>
+                <li>Egyesült Királyság</li>
+                <li>Oroszország</li>
+                <li>USA (1917-től)</li>
+            </ul>
+
+            <p><b>Cél:</b></p>
+            <p>A német terjeszkedés megállítása és Európa egyensúlyának fenntartása.</p>
         </div>
 
-        <div class="power central">
+        <div class="card central">
             <h2>Központi Hatalmak</h2>
-            <p>Németország</p>
-            <p>Osztrák–Magyar Monarchia</p>
-            <p>Oszmán Birodalom</p>
+            <p><b>Fő országok:</b></p>
+            <ul>
+                <li>Németország</li>
+                <li>Osztrák–Magyar Monarchia</li>
+                <li>Oszmán Birodalom</li>
+                <li>Bulgária</li>
+            </ul>
+
+            <p><b>Cél:</b></p>
+            <p>Területszerzés és a katonai befolyás növelése Európában.</p>
         </div>
+
     </div>
 
-    <form id="quizForm">
+    <h2>Összehasonlítás</h2>
 
+    <table>
+        <tr>
+            <th>Szempont</th>
+            <th>Antant</th>
+            <th>Központi Hatalmak</th>
+        </tr>
+
+        <tr>
+            <td>Erősebb haditengerészet</td>
+            <td>Igen</td>
+            <td>Nem</td>
+        </tr>
+
+        <tr>
+            <td>Fő vezető hatalom</td>
+            <td>Egyesült Királyság</td>
+            <td>Németország</td>
+        </tr>
+
+        <tr>
+            <td>Gazdasági erő</td>
+            <td>Nagyon erős</td>
+            <td>Korlátozottabb</td>
+        </tr>
+
+        <tr>
+            <td>Végső győzelem</td>
+            <td>Győztes</td>
+            <td>Vesztes</td>
+        </tr>
+    </table>
+
+    <div class="important">
+        <h2>Fontos események</h2>
+
+        <ul>
+            <li>1914 - Ferenc Ferdinánd meggyilkolása Szarajevóban</li>
+            <li>1914 - Kitör az első világháború</li>
+            <li>1916 - Verduni csata</li>
+            <li>1917 - Az USA belép a háborúba</li>
+            <li>1918 - A háború vége</li>
+            <li>1919 - Versailles-i békeszerződés</li>
+        </ul>
+    </div>
+
+</section>
+
+<section>
+
+    <h2>Kvíz</h2>
+
+    <form id="quizForm">
         <div id="questions"></div>
 
-        <button type="button" onclick="checkAnswers()">Eredmény</button>
+        <button type="button" onclick="checkAnswers()">Kvíz Ellenőrzése</button>
+
+        <div id="result"></div>
     </form>
 
-    <div id="result"></div>
-</div>
+</section>
 
 <script>
+
 const quizData = [
-    {
-        question: "Mikor kezdődött az első világháború?",
-        options: ["1912", "1914", "1918", "1939"],
-        answer: "1914"
-    },
-    {
-        question: "Melyik ország tartozott az Antanthoz?",
-        options: ["Németország", "Oszmán Birodalom", "Franciaország", "Bulgária"],
-        answer: "Franciaország"
-    },
-    {
-        question: "Ki ellen harcolt Németország?",
-        options: ["Antant", "Japán", "Svájc", "Svédország"],
-        answer: "Antant"
-    },
-    {
-        question: "Melyik birodalom volt a Központi Hatalmak része?",
-        options: ["Brit Birodalom", "Oszmán Birodalom", "Orosz Birodalom", "Franciaország"],
-        answer: "Oszmán Birodalom"
-    },
-    {
-        question: "Ki volt a trónörökös, akinek meggyilkolása kiváltotta a háborút?",
-        options: ["Ferenc Ferdinánd", "Napóleon", "Vilmos császár", "Lenin"],
-        answer: "Ferenc Ferdinánd"
-    },
-    {
-        question: "Hol történt a merénylet?",
-        options: ["Berlin", "Budapest", "Szarajevó", "Párizs"],
-        answer: "Szarajevó"
-    },
-    {
-        question: "Melyik ország NEM volt központi hatalom?",
-        options: ["Németország", "Olaszország", "Osztrák–Magyar Monarchia", "Oszmán Birodalom"],
-        answer: "Olaszország"
-    },
-    {
-        question: "Mikor ért véget a háború?",
-        options: ["1916", "1917", "1918", "1920"],
-        answer: "1918"
-    },
-    {
-        question: "Melyik szerződés zárta le a háborút?",
-        options: ["Trianoni", "Versailles-i", "Párizsi", "Bécsi"],
-        answer: "Versailles-i"
-    },
-    {
-        question: "Ki volt Németország vezetője?",
-        options: ["II. Vilmos", "Hitler", "Sztálin", "Churchill"],
-        answer: "II. Vilmos"
-    },
-    {
-        question: "Melyik ország lépett be később az Antant oldalán?",
-        options: ["USA", "Németország", "Bulgária", "Törökország"],
-        answer: "USA"
-    },
-    {
-        question: "Milyen harcmodor volt jellemző?",
-        options: ["Légi csata", "Tankcsata", "Árokháború", "Űrháború"],
-        answer: "Árokháború"
-    },
-    {
-        question: "Melyik fegyvert használták először nagy számban?",
-        options: ["Lézer", "Vegyi fegyver", "Rakéta", "Atomfegyver"],
-        answer: "Vegyi fegyver"
-    },
-    {
-        question: "Melyik ország volt az Antant része?",
-        options: ["Oroszország", "Bulgária", "Németország", "Ausztria"],
-        answer: "Oroszország"
-    },
-    {
-        question: "Melyik kontinensen zajlott főként a háború?",
-        options: ["Ázsia", "Afrika", "Európa", "Ausztrália"],
-        answer: "Európa"
-    }
+
+{
+question:"Mikor kezdődött az első világháború?",
+options:["1912","1914","1918","1939"],
+answer:"1914"
+},
+
+{
+question:"Melyik ország tartozott az Antanthoz?",
+options:["Németország","Franciaország","Bulgária","Oszmán Birodalom"],
+answer:"Franciaország"
+},
+
+{
+question:"Ki váltotta ki a háborút?",
+options:["Hitler","Ferenc Ferdinánd meggyilkolása","USA","Napóleon"],
+answer:"Ferenc Ferdinánd meggyilkolása"
+},
+
+{
+question:"Melyik ország volt központi hatalom?",
+options:["USA","Franciaország","Németország","Oroszország"],
+answer:"Németország"
+},
+
+{
+question:"Hol történt a merénylet?",
+options:["Budapest","Berlin","Szarajevó","Párizs"],
+answer:"Szarajevó"
+},
+
+{
+question:"Mikor lett vége a háborúnak?",
+options:["1915","1918","1921","1930"],
+answer:"1918"
+},
+
+{
+question:"Melyik ország lépett be 1917-ben?",
+options:["Japán","USA","Olaszország","Spanyolország"],
+answer:"USA"
+},
+
+{
+question:"Milyen harcmodor volt jellemző?",
+options:["Űrháború","Tankverseny","Árokháború","Légi tánc"],
+answer:"Árokháború"
+},
+
+{
+question:"Melyik szerződés zárta le a háborút?",
+options:["Trianoni","Versailles-i","Bécsi","Párizsi"],
+answer:"Versailles-i"
+},
+
+{
+question:"Melyik birodalom tartozott a központi hatalmakhoz?",
+options:["Brit Birodalom","Oszmán Birodalom","Franciaország","USA"],
+answer:"Oszmán Birodalom"
+},
+
+{
+question:"Ki nyerte meg a háborút?",
+options:["Központi Hatalmak","Antant","Senki","Japán"],
+answer:"Antant"
+},
+
+{
+question:"Melyik ország volt az Antant része?",
+options:["Bulgária","Németország","Oroszország","Ausztria"],
+answer:"Oroszország"
+},
+
+{
+question:"Melyik fegyvert használták sokszor?",
+options:["Lézer","Vegyi fegyver","Atomfegyver","Rakéta"],
+answer:"Vegyi fegyver"
+},
+
+{
+question:"Melyik kontinensen zajlott főként?",
+options:["Afrika","Ázsia","Európa","Ausztrália"],
+answer:"Európa"
+},
+
+{
+question:"Melyik ország volt a Központi Hatalmak vezetője?",
+options:["Németország","USA","Franciaország","Oroszország"],
+answer:"Németország"
+}
+
 ];
 
 const questionsDiv = document.getElementById("questions");
 
-quizData.forEach((q, index) => {
-    const div = document.createElement("div");
+quizData.forEach((q,index)=>{
+
+    const div=document.createElement("div");
     div.classList.add("question");
 
-    div.innerHTML = `
-        <h3>${index + 1}. ${q.question}</h3>
-        ${q.options.map(option => `
-            <label>
-                <input type="radio" name="q${index}" value="${option}">
-                ${option}
-            </label><br>
-        `).join("")}
+    div.innerHTML=`
+    <h3>${index+1}. ${q.question}</h3>
+
+    ${q.options.map(option=>`
+        <label>
+            <input type="radio" name="q${index}" value="${option}">
+            ${option}
+        </label><br>
+    `).join("")}
     `;
 
     questionsDiv.appendChild(div);
+
 });
 
-function checkAnswers() {
-    let score = 0;
+function checkAnswers(){
 
-    quizData.forEach((q, index) => {
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        const questionDiv = document.getElementsByClassName("question")[index];
+    let score=0;
 
-        questionDiv.classList.remove("correct", "wrong");
+    quizData.forEach((q,index)=>{
 
-        if (selected) {
-            if (selected.value === q.answer) {
-                score++;
+        const selected=document.querySelector(`input[name="q${index}"]:checked`);
+        const questionDiv=document.getElementsByClassName("question")[index];
+
+        questionDiv.classList.remove("correct","wrong");
+
+        if(selected){
+
+            if(selected.value===q.answer){
+
                 questionDiv.classList.add("correct");
-            } else {
+                score++;
+
+            }else{
+
                 questionDiv.classList.add("wrong");
+
             }
-        } else {
+
+        }else{
+
             questionDiv.classList.add("wrong");
+
         }
+
     });
 
-    document.getElementById("result").innerHTML =
-        `Pontszám: ${score} / ${quizData.length}`;
+    document.getElementById("result").innerHTML=
+    `Pontszám: ${score} / ${quizData.length}`;
+
 }
+
 </script>
 
 </body>
